@@ -1,13 +1,26 @@
 import { getCookie } from "cookies-next";
 import Link from "next/link";
+import Head from "next/head";
 
 export default function Home({ dispatch, ambulance, fire, police, country }) {
-  console.log("dispatch:", dispatch);
-  console.log("ambulance:", ambulance);
-  console.log("fire:", fire);
-  console.log("police:", police);
   return (
     <div>
+      <Head>
+        <title>Emergency Numbers</title>
+          <meta property="og:title" content="Emergency Numbers" />
+          <meta name="description" content="What's the emergency number for the country you're in?" />
+          <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+          <meta property="og:url" content="https://tobyb.dev" />
+          <meta property="og:image" content="/meta.png" />
+          <meta property="og:type" content="website" />
+
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta property="twitter:domain" content="tobyb.dev" />
+          <meta property="twitter:url" content="https://tobyb.dev" />
+          <meta name="twitter:title" content="Toby Brown" />
+          <meta name="twitter:description" content="Toby's personal website" />
+          <meta name="twitter:image" content="/meta.png" />
+      </Head>
       <div className="grid place-items-center justify-center h-screen text-center mx-8">
         <div>
           <h1 className="text-4xl max-w-2xl lowercase">
@@ -90,5 +103,7 @@ export async function getServerSideProps({ req, res }) {
         country,
       },
     };
+  } else {
+    return {}
   }
 }

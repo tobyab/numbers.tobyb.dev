@@ -1,13 +1,11 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
-
-type Data = {
-  name: string
-}
+import type { NextApiResponse } from 'next'
+import { NextRequest } from "next/server";
 
 export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
+  req: NextRequest,
+  res: NextApiResponse
 ) {
-  res.status(200).json({ name: 'John Doe' })
+  navigator.geolocation.getCurrentPosition(success, error, options);
+
+  return res.status(200).json({ country });
 }

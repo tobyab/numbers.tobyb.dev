@@ -10,16 +10,8 @@ export default function Home({ dispatch, ambulance, fire, police, country }) {
           <meta property="og:title" content="Emergency Numbers" />
           <meta name="description" content="What's the emergency number for the country you're in?" />
           <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-          <meta property="og:url" content="https://tobyb.dev" />
-          <meta property="og:image" content="/meta.png" />
+          <meta property="og:url" content="https://numbers.tobyb.dev" />
           <meta property="og:type" content="website" />
-
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta property="twitter:domain" content="tobyb.dev" />
-          <meta property="twitter:url" content="https://tobyb.dev" />
-          <meta name="twitter:title" content="Toby Brown" />
-          <meta name="twitter:description" content="Toby's personal website" />
-          <meta name="twitter:image" content="/meta.png" />
       </Head>
       <div className="grid place-items-center justify-center h-screen text-center mx-8">
         <div>
@@ -92,7 +84,7 @@ export async function getServerSideProps({ req, res }) {
     },
   ).then((response) => response.json());
 
-  if (data && data.data) {
+  if (data.data) {
     const { dispatch, ambulance, fire, police, country } = data.data;
     return {
       props: {
@@ -104,6 +96,14 @@ export async function getServerSideProps({ req, res }) {
       },
     };
   } else {
-    return {}
+    return {
+        props: {
+            dispatch: "Loading...",
+            ambulance: "Loading...",
+            fire: "Loading...",
+            police: "Loading...",
+            country: "Loading...",
+        }
+    }
   }
 }

@@ -69,11 +69,7 @@ export default function Home({ dispatch, ambulance, fire, police, country }) {
             )}
           </div>
           <p className="absolute inset-x-0 bottom-8">
-            a tiny utility built by{" "}
-            <Link href="https://tobyb.dev" className="underline">
-              toby
-            </Link>
-            ! ✨
+            disclaimer: this data is provided without any claims of accuracy. therefore, you should only use it as guidance, and do your own due diligence.
           </p>
         </div>
       </div>
